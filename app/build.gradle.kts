@@ -1,7 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.kapt")
 }
+
 
 android {
     namespace = "com.sample.criminalintent"
@@ -43,7 +45,10 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.lifecycle:lifecycle-extensions:2.0.0")
     implementation("androidx.recyclerview:recyclerview:1.0.0")
+    implementation("androidx.room:roomruntime:2.1.0-alpha04")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    kapt("androidx.room:room-compiler:2.6.0")
+
 }

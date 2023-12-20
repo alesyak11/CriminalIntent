@@ -12,14 +12,14 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 
 class CrimeFragment : Fragment(){
-    private lateinit var crime: Crime.CrimeDetails
+    private lateinit var crime: Crime
     private lateinit var titleField: EditText
     private lateinit var dateButton: Button
     private lateinit var solvedCheckBox: CheckBox
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        crime = Crime.CrimeDetails()
+        crime = Crime()
     }
     override fun onCreateView(
         inflater: LayoutInflater,
