@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,8 +17,10 @@ class CrimeListFragment : Fragment() {
     private lateinit var crimeRecyclerView: RecyclerView
     private var adapter: CrimeAdapter? = null
 
-    private val crimeListViewModel: CrimeListViewModel by lazy {
-                ViewModelProviders.of(this).get(CrimeListViewModel::class.java)
+    private val crimeListViewModel:
+            CrimeListViewModel by lazy {
+        ViewModelProviders.of(this)
+            .get(CrimeListViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,18 +42,27 @@ class CrimeListFragment : Fragment() {
         return view
     }
     private inner class CrimeHolder(view: View)
-        : RecyclerView.ViewHolder(view) {
-        private lateinit var crime: Crime
+        : RecyclerView.ViewHolder(view),View.OnClickListener {
+        private lateinit var crime: Crime.CrimeDetails
         private val titleTextView: TextView =
             itemView.findViewById(R.id.crime_title)
         private val dateTextView: TextView =
             itemView.findViewById(R.id.crime_date)
-        fun bind(crime: Crime) {
+        init {
+            itemView.setOnClickListener(this)
+        }
+        fun bind(crime: Crime.CrimeDetails) {
             this.crime = crime
             titleTextView.text = this.crime.title
             dateTextView.text =
                 this.crime.date.toString()
         }
+        override fun onClick(v: View) {
+            Toast.makeText(context, "${crime.title} pressed!"
+                , Toast.LENGTH_SHORT)
+                .show()
+        }
+
 
     }
     private inner class CrimeAdapter(var crimes: List<Crime.CrimeDetails>)

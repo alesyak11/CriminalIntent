@@ -1,9 +1,10 @@
 package com.sample.criminalintent
 
 import android.util.Log
+import androidx.lifecycle.ViewModel
 
 private const val TAG = "CrimeListViewModel"
-class CrimeListViewModel {
+class CrimeListViewModel: ViewModel() {
     val crimes: MutableList<Crime.CrimeDetails> = mutableListOf()
 
     init {
