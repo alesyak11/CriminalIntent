@@ -3,7 +3,6 @@ package com.sample.criminalintent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +25,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.Callbacks {
     private lateinit var titleField: EditText
     private lateinit var dateButton: Button
     private lateinit var solvedCheckBox: CheckBox
+
     private val crimeDetailViewModel:
             CrimeDetailViewModel by lazy {
                 ViewModelProviders.of(this).get(CrimeDetailViewModel::class.java)
