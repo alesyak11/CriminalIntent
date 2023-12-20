@@ -11,6 +11,9 @@ constructor(context: Context) {
             CrimeDatabase::class.java, DATABASE_NAME
         ).build()
     private val crimeDao = database.crimeDao()
+    fun getCrimes(): List<Crime> = crimeDao.getCrimes()
+    fun getCrime(id: UUID): Crime? = crimeDao.getCrime(id)
+
     companion object {
         private var INSTANCE: CrimeRepository? =
             null
