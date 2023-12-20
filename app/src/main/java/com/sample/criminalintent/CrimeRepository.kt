@@ -1,7 +1,11 @@
 package com.sample.criminalintent
 
 import android.content.Context
+import androidx.room.Room
 import com.sample.criminalintent.database.CrimeDatabase
+import java.util.UUID
+
+private const val DATABASE_NAME = "crime-database"
 
 class CrimeRepository private
 constructor(context: Context) {
